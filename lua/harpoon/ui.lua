@@ -173,9 +173,9 @@ function M.nav_file(id)
     end
 
     local mark = Marked.get_marked_file(idx)
-    local filename = vim.fs.normalize(mark.filename)
+    --local filename = vim.fs.normalize(mark.filename)
     -- TODO: remove current working dir and show path to file in current working dir 
-    local buf_id = get_or_create_buffer(filename)
+    local buf_id = get_or_create_buffer(mark.filename)
     local set_row = not vim.api.nvim_buf_is_loaded(buf_id)
 
     vim.api.nvim_set_current_buf(buf_id)
