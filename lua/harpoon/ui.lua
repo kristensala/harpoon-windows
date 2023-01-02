@@ -174,10 +174,7 @@ function M.nav_file(id)
 
     local mark = Marked.get_marked_file(idx)
     local filename = vim.fs.normalize(mark.filename)
-    if filename:sub(1, 1) ~= "/" then
-        filename = vim.loop.cwd() .. "/" .. vim.fs.normalize(mark.filename)
-    end
-
+    -- TODO: remove current working dir and show path to file in current working dir 
     local buf_id = get_or_create_buffer(filename)
     local set_row = not vim.api.nvim_buf_is_loaded(buf_id)
 
